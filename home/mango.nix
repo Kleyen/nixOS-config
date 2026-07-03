@@ -13,7 +13,7 @@
   '';
 
   wayland.windowManager.mango = {
-    enable = true;
+    enable = false;
 
     autostart_sh = ''
       dms run &
