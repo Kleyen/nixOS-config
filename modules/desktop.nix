@@ -1,12 +1,9 @@
 {pkgs, ...}: {
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
+  programs.dconf.enable = true;
 
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+    extraPortals = [pkgs.xdg-desktop-portal-wlr];
     config.common.default = "*";
   };
 
