@@ -52,27 +52,6 @@
         "isnoborder:1,appid:^kitty$"
         "isfloating:1,appid:^org\\.quickshell$"
       ];
-
-      bind = [
-        "SUPER,space,spawn,dms ipc call spotlight toggle"
-        "SUPER,v,spawn,dms ipc call clipboard toggle"
-        "SUPER,m,spawn,dms ipc call processlist focusOrToggle"
-        "SUPER,comma,spawn,dms ipc call settings focusOrToggle"
-        "SUPER,n,spawn,dms ipc call notifications toggle"
-        "SUPER,y,spawn,dms ipc call dankdash wallpaper"
-        "SUPER+ALT,l,spawn,dms ipc call lock lock"
-
-        "NONE,XF86AudioRaiseVolume,spawn,dms ipc call audio increment 3"
-        "NONE,XF86AudioLowerVolume,spawn,dms ipc call audio decrement 3"
-        "NONE,XF86AudioMute,spawn,dms ipc call audio mute"
-        "NONE,XF86MonBrightnessUp,spawn,dms ipc call brightness increment 5"
-        "NONE,XF86MonBrightnessDown,spawn,dms ipc call brightness decrement 5"
-
-        "SUPER,Return,spawn,ghostty"
-        "SUPER,Q,killclient"
-        "SUPER,F,togglefullscreen"
-        "SUPER,r,reload_config"
-      ];
     };
   };
 }
