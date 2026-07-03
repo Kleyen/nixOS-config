@@ -27,5 +27,9 @@
     nodejs
     localsend
     tree
+
+    # neovim
+    python3
+    gdu
   ];
 }

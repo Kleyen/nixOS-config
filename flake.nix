@@ -18,6 +18,12 @@
       url = "github:AstroNvim/template";
       flake = false;
     };
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    qylock.url = "github:Darkkal44/qylock";
   };
 
   outputs = {

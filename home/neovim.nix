@@ -18,6 +18,8 @@
       ghostscript
       gcc
       gnumake
+      tectonic
+      mermaid-cli
     ];
   };
 
