@@ -6,6 +6,7 @@ This branch contains a specialized, modular NixOS and Home Manager configuration
 
 The `mango-only` branch isolates configuration files related to the window manager layout, custom desktop scripting, and integrated application modules (like `ghostty` and `fish`) without bleeding into the main system branch.
 
+```text
 .
 ├── home/
 │   ├── dms.nix          # DMS-specific configurations
@@ -14,7 +15,6 @@ The `mango-only` branch isolates configuration files related to the window manag
 │   ├── mango.nix        # Main window manager settings & keybind layers
 │   └── ...
 └── modules/             # System and hardware-level Nix definitions
-
 
 ---
 
