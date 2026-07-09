@@ -27,6 +27,8 @@
     nodejs
     localsend
     tree
+    steam
+    motrix
 
     # neovim
     python3

@@ -15,7 +15,7 @@ The `mango-only` branch isolates configuration files related to the window manag
 │   ├── mango.nix        # Main window manager settings & keybind layers
 │   └── ...
 └── modules/             # System and hardware-level Nix definitions
-
+```
 ---
 
 ## 🛠️ Key Components

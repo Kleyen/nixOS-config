@@ -15,6 +15,7 @@
     ./modules/shell.nix
     ./modules/qylock.nix
     ./modules/mango.nix
+    ./modules/clamav.nix
   ];
 
   services.gvfs.enable = true;
