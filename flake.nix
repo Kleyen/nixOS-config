@@ -3,34 +3,33 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     astronvim-template = {
       url = "github:AstroNvim/template";
       flake = false;
     };
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     qylock.url = "github:Darkkal44/qylock";
+  };
+
+  nixConfig = {
+    extra-substituters = ["https://noctalia.cachix.org"];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    dms,
+    noctalia,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -48,7 +47,7 @@
             home-manager.users.denver = {
               imports = [
                 ./home.nix
-                dms.homeModules.dank-material-shell
+                noctalia.homeModules.default
               ];
             };
           }
