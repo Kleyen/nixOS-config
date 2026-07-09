@@ -1,9 +1,7 @@
-{...}: {
+{ ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
-
-
 
     extraConfig = ''
       -- plain key=value blocks translate fine, kept as one hl.config() call
@@ -40,17 +38,22 @@
           preserve_split = true,
         },
         misc = {
-            disable_hyprland_logo = true,
-            disable_splash_rendering = true,
-            focus_on_activate = true,
-          },
-        })
+          disable_hyprland_logo = true,
+          disable_splash_rendering = true,
+          focus_on_activate = true,
+        },
+      })
         
-        hl.config({
-          debug = {
-            vfr = true,
-          },
-        })
+      -- FIXED: Cleaned up the malformed braces/parentheses here
+      hl.config({
+        debug = {
+          vfr = true,
+        },
+        cursor = {
+          no_hardware_cursors = true,
+        },
+      })
+
       -- monitor: needs its own function call, not a settings string
       -- VERIFY field names against your LSP stubs (/usr/share/hypr/stubs/) — "output"
       -- is confirmed required, but I can't confirm the wildcard-all-monitors spelling
@@ -59,10 +62,10 @@
       -- animations
       hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
       hl.animation({ leaf = "windows",    enabled = true, speed = 7,  bezier = "myBezier" });
-      hl.animation({ leaf = "windowsOut", enabled = true, speed = 7, bezier = "myBezier",  style = "popin 80%" });
+      hl.animation({ leaf = "windowsOut", enabled = true, speed = 7,  bezier = "myBezier", style = "popin 80%" });
       hl.animation({ leaf = "border",     enabled = true, speed = 10, bezier = "myBezier" });
-      hl.animation({ leaf = "fade",       enabled = true, speed = 7, bezier = "myBezier" });
-      hl.animation({ leaf = "workspaces", enabled = true, speed = 6, bezier = "myBezier" });
+      hl.animation({ leaf = "fade",       enabled = true, speed = 7,  bezier = "myBezier" });
+      hl.animation({ leaf = "workspaces", enabled = true, speed = 6,  bezier = "myBezier" });
 
       local mainMod = "SUPER"
 
