@@ -92,10 +92,35 @@
       hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
 
       -- workspace switching + move-to-workspace, numpad (KP_1..KP_9, KP_0 = 10)
+      -- Bound to BOTH the digit keysym and its NumLock-off navigation equivalent.
+      -- numlock_by_default above is supposed to force digit mode, but that option
+      -- has a long history of not reliably sticking in Hyprland depending on
+      -- session/greeter timing — this way workspace switching works regardless
+      -- of what state NumLock actually ends up in.
+      -- VERIFY: these nav-key names (KP_End, KP_Begin, KP_Next, etc.) are the
+      -- standard X11/xkbcommon keysym names for numpad-without-numlock, but I
+      -- can't confirm this Lua bind layer accepts them under the same strings —
+      -- test after reload; if a bind silently doesn't fire, that's the one to check.
+      local kpNavAlias = {
+        ["KP_1"] = "KP_End",
+        ["KP_2"] = "KP_Down",
+        ["KP_3"] = "KP_Next",
+        ["KP_4"] = "KP_Left",
+        ["KP_5"] = "KP_Begin",
+        ["KP_6"] = "KP_Right",
+        ["KP_7"] = "KP_Home",
+        ["KP_8"] = "KP_Up",
+        ["KP_9"] = "KP_Prior",
+        ["KP_0"] = "KP_Insert",
+      }
+
       for i = 1, 10 do
         local key = "KP_" .. (i % 10)
-        hl.bind(mainMod .. " + " .. key,          hl.dsp.focus({ workspace = i }))
-        hl.bind(mainMod .. " + SHIFT + " .. key,  hl.dsp.window.move({ workspace = i }))
+        local navKey = kpNavAlias[key]
+        hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i }))
+        hl.bind(mainMod .. " + " .. navKey,          hl.dsp.focus({ workspace = i }))
+        hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+        hl.bind(mainMod .. " + SHIFT + " .. navKey,  hl.dsp.window.move({ workspace = i }))
       end
 
       -- scroll through workspaces — VERIFY: mouse_down/mouse_up key-name spelling in
