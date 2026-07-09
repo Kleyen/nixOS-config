@@ -10,6 +10,7 @@
     enable = true;
     theme = "R1999_1"; # browse themes/ in the repo, swap freely
     sddm.enable = true;
-    quickshell.enable = false; # DMS handles the in-session lock instead
+    quickshell.enable = false; # Noctalia owns the in-session lock (SUPER+L -> noctalia msg session lock);
+    # qylock's quickshell lockscreen would only fire on top of that — keep this off unless you drop Noctalia's lock too.
   };
 }
