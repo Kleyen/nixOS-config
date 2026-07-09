@@ -14,7 +14,6 @@
     ./modules/fonts.nix
     ./modules/shell.nix
     ./modules/qylock.nix
-    ./modules/mango.nix
   ];
 
   services.gvfs.enable = true;
