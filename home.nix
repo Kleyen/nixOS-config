@@ -7,6 +7,7 @@
     ./home/fish.nix
     ./home/neovim.nix
     ./home/hyprland
+    ./home/fastfetch.nix
   ];
 
   home.username = "denver";
