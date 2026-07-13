@@ -19,6 +19,7 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   services.flatpak.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "26.05";
 }

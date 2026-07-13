@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.pointerCursor = {
-    name    = "Bibata-Modern-Classic";
+    enable = true;
+    name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
-    size    = 24;
+    size = 24;
     gtk.enable = true;
   };
 
@@ -15,13 +14,13 @@
       size = 11;
     };
     iconTheme = {
-      name    = "Papirus-Dark";
+      name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
     cursorTheme = {
-      name    = "Bibata-Modern-Classic";
+      name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
-      size    = 24;
+      size = 24;
     };
   };
 }

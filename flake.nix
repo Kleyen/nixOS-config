@@ -7,8 +7,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/cachix";
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     astronvim-template = {
@@ -18,26 +18,19 @@
     qylock.url = "github:Darkkal44/qylock";
   };
 
-  nixConfig = {
-    extra-substituters = ["https://noctalia.cachix.org"];
-    extra-trusted-public-keys = [
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
-  };
-
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    noctalia,
+    dms,
     ...
   } @ inputs: {
     nixosConfigurations = {
       "nixos" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
+          {nixpkgs.hostPlatform = "x86_64-linux";}
           home-manager.nixosModules.home-manager
           {
             home-manager.backupFileExtension = "backup";
@@ -45,10 +38,9 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.denver = {
-              imports = [
-                ./home.nix
-                noctalia.homeModules.default
-              ];
+              home-manager.users.denver = {
+                imports = [./home.nix];
+              };
             };
           }
         ];

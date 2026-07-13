@@ -28,6 +28,8 @@
     localsend
     tree
     motrix
+    grc
+    upscaler
 
     # neovim
     python3

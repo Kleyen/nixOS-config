@@ -17,7 +17,7 @@
 
       logo = {
         type = "kitty";
-        source = "~/Pictures/logos/nixos-white.png";
+        source = "~/Pictures/logos/nixos-black.png";
         width = 30;
         height = 15;
       };
