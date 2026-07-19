@@ -9,6 +9,8 @@
     ./home/hyprland.nix
     ./home/fastfetch.nix
     ./home/dms.nix
+    ./home/foot.nix
+    ./home/qutebrowser.nix
   ];
 
   home.username = "denver";

@@ -37,10 +37,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.sharedModules = [
+              dms.homeModules.dank-material-shell
+            ];
             home-manager.users.denver = {
-              home-manager.users.denver = {
-                imports = [./home.nix];
-              };
+              imports = [./home.nix];
             };
           }
         ];

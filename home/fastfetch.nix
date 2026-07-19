@@ -1,92 +1,115 @@
 {...}: {
   programs.fastfetch = {
     enable = true;
-
-    settings = let
-      esc = builtins.fromJSON ''"\u001b"'';
-    in {
-      display = {
-        key = {
-          width = 10;
-        };
-        size = {
-          binaryPrefix = "jedec";
-        };
-        separator = "";
-      };
-
+    settings = {
       logo = {
-        type = "kitty";
-        source = "~/Pictures/logos/nixos-black.png";
-        width = 30;
-        height = 15;
+        type = "auto";
+        padding = {
+          top = 2;
+        };
       };
-
+      display = {
+        separator = " ";
+      };
       modules = [
-        "break"
+        {type = "break";}
+        {type = "break";}
         {
-          type = "os";
-          key = "os";
-          keyColor = "yellow";
-          format = "{name}";
+          type = "title";
+          keyWidth = "8";
         }
-        {
-          type = "command";
-          key = "age";
-          keyColor = "cyan";
-          text = ''echo "$(( ($(date +%s) - $(stat -c %Y /etc/machine-id)) / 86400 )) days"'';
-        }
-        {
-          type = "kernel";
-          key = "ker";
-          keyColor = "green";
-        }
-        {
-          type = "packages";
-          key = "pkgs";
-          keyColor = "cyan";
-        }
-        {
-          type = "shell";
-          key = "sh";
-          keyColor = "blue";
-          format = "{pretty-name}";
-        }
-        {
-          type = "wm";
-          key = "wm";
-          keyColor = "red";
-          format = "{pretty-name}";
-        }
-        {
-          type = "uptime";
-          key = "up";
-          keyColor = "green";
-        }
-        {
-          type = "cpu";
-          key = "cpu";
-          keyColor = "red";
-          format = "{name} @ {freq-max}";
-        }
-        {
-          type = "memory";
-          key = "ram";
-          keyColor = "yellow";
-          format = "{used} / {total}";
-        }
-        {
-          type = "disk";
-          key = "disk";
-          keyColor = "cyan";
-          folders = ["/"];
-          format = "{size-used} / {size-total}";
-        }
-        "break"
+        {type = "break";}
         {
           type = "custom";
-          format = "${esc}[33m󰮯 ${esc}[32m󰊠 ${esc}[34m󰊠 ${esc}[31m󰊠 ${esc}[36m󰊠 ${esc}[35m󰊠 ${esc}[37m󰊠 ${esc}[97m󰊠";
+          format = "{#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37} ";
         }
+        {type = "break";}
+        {
+          type = "os";
+          key = " os";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "kernel";
+          key = " kernel";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "packages";
+          key = "󰏗 packages";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "shell";
+          key = " shell";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "terminal";
+          key = " terminal";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "wm";
+          key = " wm";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "display";
+          key = "󰨇 display";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "cpu";
+          format = "{1}";
+          key = "󰻠 cpu";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "memory";
+          key = "  mem";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "swap";
+          key = "󰾷 swap";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "disk";
+          key = " disk";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "uptime";
+          key = "󱫡 uptime";
+          keyColor = "34";
+        }
+        {type = "break";}
+        {
+          type = "command";
+          key = "󱦟 os-age";
+          keyColor = "34";
+          text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+        }
+        {type = "break";}
+        {
+          type = "custom";
+          format = "{#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37} ";
+        }
+        {type = "break";}
+        {type = "break";}
       ];
     };
   };

@@ -30,6 +30,8 @@
     motrix
     grc
     upscaler
+    foot
+    bat
 
     # neovim
     python3
